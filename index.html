@@ -6,61 +6,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-    <title>Ejercicio 4 POO Basico</title>
+    <title>Ejercicio 5 POO Basico</title>
 </head>
 <body>
 
+    <form>
+        <div class="form-group">
+          <label for="marca">Marca</label>
+          <input type="text" class="form-control" id="marca"  placeholder="Marca">
+        </div>
+
+        <br/>
+
+        <div class="form-group">
+            <label for="modelo">Modelo</label>
+            <input type="text" class="form-control" id="modelo"  placeholder="Marca">
+        </div>
+
+        <br/>
+
+        <div class="form-group">
+            <label for="velocidad">Velocidad</label>
+            <input type="text" class="form-control" id="velocidad"  placeholder="velocidad">
+        </div>
+
+        <br/>
+
+        <div class="form-group">
+            <label for="combustible">Combustible</label>
+            <input type="text" class="form-control" id="combustible"  placeholder="combustible">
+        </div>
+
+        <br/>
+
+        <div class="form-group">
+            <label for="combustible">velocidad a convertir (convertirKmHEnMph)</label>
+            <input type="text" class="form-control" id="velocidadC"  placeholder="velocidadC">
+        </div>
+
+        <br/>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </form>
+
+<br/><br/>
     <section>
-        <form id="form" >
-            <div>
-                <h2>Figura:</h2>
-                <div>
-                    <label for="color">Color</label>
-                    <input class="form-control"  type="text" id="color">
-                </div>
-
-                <div>
-                    <label for="color">Area</label>
-                    <input class="form-control"  type="text" id="area">
-                </div>
-            </div>
-            <br/>
-            <div>
-                <h2>Circulo:</h2>
-                <div>
-                    <label for="radio">Radio</label>
-                    <input class="form-control"  type="text" id="radio">
-                </div>
-            </div>
-            <br/>
-            <div>
-                <h2>Rectangulo:</h2>
-                <div>
-                    <label for="largo">Largo</label>
-                    <input class="form-control"  type="text" id="largo">
-                </div>
-
-                <div>
-                    <label for="ancho">Ancho</label>
-                    <input class="form-control" type="text" id="ancho">
-                </div>
-            </div>
-            <br/>
-            <input type="submit" value="Enviar" class="btn btn-primary">
-        </form><br/><br/>
-    </section>
-
-
-    <section>
-        <h1>Ejercicio 4 POO Basico</h1>
+        <h1>Ejercicio 5 POO Basico</h1>
 
         <div style="margin-top: 100px;" >
             <h1>Respuesta: </h1>
-            Figura:
+            velocidad Vehiculo1:
             <h3 id="resultado1"></h3>
-            Circulo:
+            velocidad Coche1:
             <h3 id="resultado2"></h3>
-            Reactangulo:
+            convertirKmHEnMph:
             <h3 id="resultado3"></h3>
         </div>
     </section>
