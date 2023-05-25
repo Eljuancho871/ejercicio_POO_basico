@@ -1,43 +1,68 @@
 const $resultado1 = document.querySelector("#resultado1");
 const $resultado2 = document.querySelector("#resultado2");
-class Animal {
+const $resultado3 = document.querySelector("#resultado3");
+class Figura {
 
-    constructor(nombre, edad){
+    constructor(color, area){
 
-        this.nombre = nombre;
-        this.edad = edad;
+        this.color = color;
+        this.area = area;
     }
 
-    hacerSonido(){
+    calcularArea(){
 
-        $resultado1.innerHTML = `El ${this.nombre} hace un sonido`;
+        $resultado1.innerHTML = `El area es de ${this.area}`;
+    }
+}
+
+class Circulo extends Figura {
+    
+    constructor(radio){
+        
+        super(null, null);
+        this.radio = radio;
+  } 
+  
+  calcularArea(){
+      
+      this.area = Math.PI * (this.radio * this.radio);
+      $resultado2.innerHTML = `El area del circulo es ${this.area}`;
     }
 }
 
-class Perro extends Animal {
+class Rectangulo extends Figura {
 
-    constructor(raza){
-        super();
-        this.raza = raza;
+    constructor(largo, ancho){
+
+        super(null, null);
+        this.largo = largo;
+        this.ancho = ancho;
     }
 
-    moverCola(){
+    calcularArea(){
 
-        $resultado2.innerHTML = "el perro esta moviendo la cola";
+      this.area = this.largo * this.ancho;
+      $resultado3.innerHTML = `El area del circulo es ${this.area}`;
     }
 }
+
 
 document.querySelector("#form").addEventListener("submit", e => {
 
     e.preventDefault();
-    const $nombre = document.querySelector("#nombre").value;
-    const $edad = document.querySelector("#edad").value;
-    const $raza = document.querySelector("#raza").value;
+    $color = document.querySelector("#color").value;
+    $area = document.querySelector("#area").value;
+    $radio = document.querySelector("#radio").value;
+    $largo = document.querySelector("#largo").value;
+    $ancho = document.querySelector("#ancho").value;
 
-    const animal1 = new Animal($nombre, $edad);
-    animal1.hacerSonido();
-
-    const perro1 = new Perro($raza);
-    perro1.moverCola();
+    const figura1 = new Figura($color, $area);
+    figura1.calcularArea();
     
+    const circculo1 = new Circulo($radio);
+    circculo1.calcularArea();
+    
+    const rectangulo1 = new Rectangulo($ancho, $largo);
+    rectangulo1.calcularArea();
 })
+
