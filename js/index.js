@@ -1,54 +1,58 @@
 const $resultado1 = document.querySelector("#resultado1");
 const $resultado2 = document.querySelector("#resultado2");
-const $resultado3 = document.querySelector("#resultado3");
-class Vehiculo {
+class Empleado {
 
-    constructor(marca, modelo, velocidad){
+    static id = 0;
 
-        this.marca = marca;
-        this.modelo = modelo;
-        this.velocidad = velocidad;
+    constructor(nombre, edad, sueldo){
+
+        this.nombre = nombre;
+        this.edad = edad;
+        this.sueldo = sueldo;
     }
 
-    acelerar(){
+    calcularSalarioAnual() {
 
-        return this.velocidad += 10
+        return this.sueldo * 12;
     }
 
-    static convertirKmHEnMph(velocidadK){
+    static generarIdEmpleado(){
 
-        return velocidadK / 1.60934
-    }
-
-}
-
-class Coche extends Vehiculo {
-
-    constructor(combustible, marca, modelo, velocidad){
-
-        super(marca, modelo, velocidad);
-        this.combustible = combustible;
-    }
-
-    acelerar(){
-
-        return this.velocidad += 20;
+        return this.id += 1
     }
 }
 
+class Gerente extends Empleado {
 
-document.querySelector("form"),addEventListener("submit", e => {
+    constructor(departamento, nombre, edad, sueldo){
+
+        super(nombre, edad, sueldo);
+        this.departamento = departamento;
+    }
+
+    calcularSalarioAnual(){
+
+        return (this.sueldo + this.sueldo * 0.10) * 12;
+    }
+}
+
+
+
+document.querySelector("form").addEventListener("submit", e => {
     
     e.preventDefault();
-    const $marca = document.querySelector("#marca").value;
-    const $modelo = document.querySelector("#modelo").value;
-    const $combustible = document.querySelector("#combustible").value;
-    const $velocidad = Number(document.querySelector("#velocidad").value);
-    const $velocidadC = Number(document.querySelector("#velocidadC").value);
+    const $nombre_empleado = document.querySelector("#nombreEmpleado").value;
+    const $edad_empleado = document.querySelector("#edadEmpleado").value;
+    const $sueldo_empleado = Number(document.querySelector("#sueldoEmpleado").value);
+    const $nombre_gerente = document.querySelector("#nombreGerente").value;
+    const $edad_gerente = document.querySelector("#edadGerente").value;
+    const $sueldo_gerente = Number(document.querySelector("#sueldoGerente").value);
+    const $departamento_gerente = document.querySelector("#departamento").value;
+
+    const empleado1 = new Empleado($nombre_empleado, $edad_empleado, $sueldo_empleado);
+    const ID = Empleado.generarIdEmpleado();
+    $resultado1.innerHTML = empleado1.calcularSalarioAnual() + " su ID es: " + ID;
     
-    const vehiculo1 = new Vehiculo($marca, $modelo, $velocidad);
-    $resultado1.innerHTML = vehiculo1.acelerar();
-    const coche1 = new Coche($combustible, $marca, $modelo, $velocidad);
-    $resultado2.innerHTML = coche1.acelerar();
-    $resultado3.innerHTML = Vehiculo.convertirKmHEnMph($velocidadC);
+    const gerente1 = new Gerente($departamento_gerente, $nombre_gerente, $edad_gerente, $sueldo_gerente);
+    $resultado2.innerHTML = gerente1.calcularSalarioAnual();
 })
